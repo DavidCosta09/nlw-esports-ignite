@@ -25,7 +25,7 @@ app.get('/games', async (request, response) => {
     }
   })
 
-  return response.json([games])
+  return response.json(games)
 })
 
 app.post('/games/:id/ads', async (request, response) => {
@@ -98,4 +98,4 @@ app.get('/ads/:id/discord', async (request, response) => {
   )
 })
 
-app.listen(7777)
+app.listen(3333)

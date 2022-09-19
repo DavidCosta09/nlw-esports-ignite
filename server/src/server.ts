@@ -32,8 +32,6 @@ app.post('/games/:id/ads', async (request, response) => {
   const gameId = request.params.id;
   const body = request.body
 
-
-
   const ad = await prisma.ad.create({
     data: {
       gameId,          
@@ -73,7 +71,7 @@ app.get('/games/:id/ads', async (request, response) => {
   return response.json(ads.map(ad => {
     return {
       ...ad,
-      weekDays: ad.weekDays.split(','),
+      weekDays: ad.weekDays?.split(','),
       hourStart: convertMinutesToHoursString(ad.hourStart),
       hourEnd: convertMinutesToHoursString(ad.hourEnd)
     }
